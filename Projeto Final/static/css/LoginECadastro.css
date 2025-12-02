@@ -1,0 +1,215 @@
+/* login.html */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #F59D0F, #EC6839);
+    overflow: hidden;
+}
+
+.wrapper {
+    width: 400px;
+    height: 500px;
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+    position: relative;
+}
+
+.forms {
+    display: flex;
+    width: 200%;
+    height: 100%;
+    transform: translateX(0%);
+    transition: transform 0.6s ease-in-out;
+}
+
+.container {
+    width: 50%;
+    padding: 40px;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.6s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.container.active {
+    opacity: 1;
+}
+
+h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    /* garante mesmo espaçamento entre os campos */
+}
+
+.input-group {
+    position: relative;
+}
+
+.input-field {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 14px;
+    color: #555;
+    user-select: none;
+}
+
+.btn {
+    width: 100%;
+    padding: 12px;
+    background: #4A90E2;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.btn:hover {
+    background: #357ABD;
+}
+
+.link {
+    display: block;
+    margin-top: 15px;
+    color: #4A90E2;
+    text-decoration: none;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.link:hover {
+    text-decoration: underline;
+}
+
+/* navadmin.html e navusuario */
+.nav-container {
+    width: 50%;
+    padding: 40px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .nav-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    max-width: 200px;
+  }
+
+  .nav-btn {
+    width: 100%;
+    padding: 15px;
+    background: #4A90E2;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s;
+    font-size: 16px;
+  }
+
+  .nav-btn:hover {
+    background: #357ABD;
+  }
+
+  .profile-container {
+    width: 50%;
+    padding: 40px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+
+  .profile-photo {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: #ccc;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    color: #666;
+  }
+
+  .profile-name {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #333;
+  }
+
+  .profile-email {
+    font-size: 18px;
+    color: #666;
+  }
+
+  .profile- {
+    font-size: 18px;
+    color: #666;
+  }
+
+  .profile-email {
+    font-size: 18px;
+    color: #666;
+  }
+
+  .back-btn {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: #ccc;
+    color: #333;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    transition: background 0.3s;
+  }
+
+  .back-btn:hover {
+    background: #aaa;
+  }
+
+  /* navadmin.html */
