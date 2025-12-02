@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Administrador</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/LoginECadastro.css') }}">
+  <style>
+    body {
+      background-color: #f2f2f2;
+      font-family: Arial, sans-serif;
+    }
+
+    .wrapper {
+      width: 90%;
+      max-width: 1000px;
+      margin: 50px auto;
+      background: white;
+      border-radius: 15px;
+      padding: 20px 30px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+
+    .actions {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+
+    input[type="text"] {
+      width: 60%;
+      padding: 8px 12px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+
+    button {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 8px 15px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+
+    th, td {
+      padding: 10px;
+      border-bottom: 1px solid #ccc;
+      text-align: left;
+    }
+
+    th {
+      background-color: #007bff;
+      color: white;
+    }
+
+    .edit-btn {
+      background-color: #ffc107;
+    }
+
+    .delete-btn {
+      background-color: #dc3545;
+    }
+
+    .edit-btn:hover {
+      background-color: #e0a800;
+    }
+
+    .delete-btn:hover {
+      background-color: #b52b39;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <h1>Bem-vindo(a), Administrador(a)</h1>
+    <div class="actions">
+      <button class="botao_voltar" onclick="history.back()">Voltar</button>
+      <input type="text" name="search" id="searchInput" placeholder="Pesquisar usuário..." value="{{ search }}" form="searchForm">
+      <button type="submit" id="searchBtn" form="searchForm">Pesquisar</button>
+    </div>
+    <form id="searchForm" method="GET" action="{{ url_for('pagina_admin') }}" style="display: none;"></form>
+
+    <table id="userTable">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Usuário</th>
+          <th>Email</th>
+          <th>Pontos</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for user in usuarios %}
+        <tr>
+          <td>{{ user.id }}</td>
+          <td>{{ user.usuario }}</td>
+          <td>{{ user.email }}</td>
+          <td>{{ user.pontos }}</td>
+          <td>
+            <button class="edit-btn">Alterar</button>
+            <button class="delete-btn">Excluir</button>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+  <script>
+    // Botões de alterar e excluir
+    document.querySelectorAll(".edit-btn").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const nome = btn.closest("tr").cells[1].textContent;
+        alert("Alterar dados de: " + nome);
+        // Aqui você pode abrir um modal ou redirecionar para a página de edição
+      });
+    });
+
+    document.querySelectorAll(".delete-btn").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const nome = btn.closest("tr").cells[1].textContent;
+        if (confirm("Deseja realmente excluir o usuário " + nome + "?")) {
+          btn.closest("tr").remove();
+          // Aqui você pode enviar uma requisição DELETE para o servidor Flask
+        }
+      });
+    });
+  </script>
+</body>
+</html>
